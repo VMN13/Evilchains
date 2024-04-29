@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = '6844732984:AAFk73dV2cBEgTR2BUjVbQwgGT9fXQrhqPY';
-const webAppUrl = 'https://evilchains.by/';
+const webAppUrl = 'https://master--bucolic-donut-13d8f4.netlify.app/';
 
 const bot = new TelegramBot(token, {polling: true});
 
