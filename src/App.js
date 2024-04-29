@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import {useTelegram} from "src/hooks/useTelegram";
-const {user, onClose} = useTelegram();
-
+import Header from "./components/Header/Header";
+  
 
 function App() {
   const {onToggleButton, tg} = useTelegram();
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-     
+      <Header />
       <button onClick={onToggleButton}>Закрыть</button>
     </div>
   );
