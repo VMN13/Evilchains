@@ -1,5 +1,10 @@
 import './App.css';
 import React, { useEffect } from 'react';
+import './Header.css';
+import './Button.css';
+import {Route, Routes} from 'react-router-dom';
+import ProductList from "./ProductList";
+import Form from "./Form";
 
 const tg = window.Telegram.WebApp;
 const Header = () => {
@@ -55,7 +60,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <button onClick={onToggleButton}>Закрыть</button>
+      <Routes> 
+        <Route index element={<ProductList />} />
+        <Route path={'/form'} element={<Form />} />
+      </Routes>
     </div>
   );
 }
