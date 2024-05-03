@@ -6,7 +6,7 @@ import {Route, Routes} from 'react-router-dom';
 import ProductList from "./ProductList";
 import Form from "./Form";
 import './ProductList.css';
-
+import './useTelegram';
 const tg = window.Telegram.WebApp;
 const Header = () => {
 
