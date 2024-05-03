@@ -1,15 +1,51 @@
 import React from 'react';
 import './Form.css';
+import { useTelegram } from './App';
+const onSendData = useCallback(() => {
 
-const Form = () => {
+}, [])
+const Form = () => { 
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const[subject, setSubject] = useState('physical');
-    const onChangeCountry = (e) => {
-        const onChangeCountry = (e.target.value)
+    const {tg} = useTelegram();
+   
+
+    const onSendData = useCallback(() => {
+        const data = {
+            country,
+            street,
+            subject
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [])
+
+    
+  useEffect(() => {
+   tg.onEvent('mainButtonClicked', onSendData)
+   return () => {
+    tg.offEvent('mainButtonClicked', onSendData)
+   }
+  }, [])
+
+
+   useEffect(() => {
+   tg.MainButton.setParams({
+    text: 'Отправить данные'
+   })
+   }, [])
+
+   useEffect(() => {
+   if (!street || !country) {
+    tg.MainButton.hide();
+   } else {
+    tg.MainButton.show();
+   }
+   }, [country, street])
+
+   const onChangeCountry = (e) => {
     }
     
-
     const onChangeStreet= (e) => {
         setStreet(e.target.value)
     }
@@ -44,8 +80,6 @@ const Form = () => {
                 <option value={'oplata'}>Наличными при получении</option>
               </select>
         </div>
-       
     )
 };
-
 export default Form;

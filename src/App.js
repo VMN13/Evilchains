@@ -5,13 +5,12 @@ import './Button.css';
 import {Route, Routes} from 'react-router-dom';
 import ProductList from "./ProductList";
 import Form from "./Form";
+import './ProductList.css';
 
 const tg = window.Telegram.WebApp;
 const Header = () => {
 
   const {user, onClose} = useTelegram();
-
-    
     return (
         <div className={'header'}>
             <Button onClick={onClose}>Закрыть</Button>
@@ -28,7 +27,6 @@ const Button = (props) => {
 };
 
 export function useTelegram() {
-   
   const onClose = () => {
       tg.close()
     }
@@ -48,7 +46,6 @@ export function useTelegram() {
       user: tg.initDataUnsafe?.user, 
     }
 }
-
 
 function App() {
   const {onToggleButton, tg} = useTelegram();
