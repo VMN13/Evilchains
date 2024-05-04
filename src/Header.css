@@ -1,3 +1,5 @@
+
+
 .header {
     width: 100%;
     height: 50px;
@@ -8,4 +10,18 @@
 
 .username {
     margin-left: auto;
+}
+
+button {
+    background-color: rgb(54,138,209);
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 0 20px;
+    max-width: 720px;
+}
+
+div.header {
+    display: flex;
+    flex-direction: column;
 }
