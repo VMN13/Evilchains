@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import './Header.css';
 import './Button.css';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 import ProductList from "./ProductList";
 import Form from "./Form";
 import './ProductList.css';
@@ -60,7 +60,7 @@ function App() {
       <Header />
       <Routes> 
         <Route index element={<ProductList />}/>
-        <Route path={'form'} element={<Form />}/>
+        <Route path={'/*form'} element={<Form />}/>
       </Routes>
     </div>
   );

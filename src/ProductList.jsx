@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import Button from './App.js';
-import {useTelegram} from "./App.js";
-import {useCallback, useEffect} from "react";
+import React, {useState, useEffect } from 'react';
+import './ProductList.css';
 import ProductItem from "./ProductItem";
+import {useTelegram} from "./useTelegram";
+import {useCallback} from "react";
+
 const products = [
     {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
     {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
@@ -20,8 +21,6 @@ const getTotalPrice = (items = []) => {
     }, 0)
 }
 
-
-
 const ProductList = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
@@ -32,7 +31,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://localhost:3000/', {
+        fetch('http://85.119.146.179:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,17 +39,9 @@ const ProductList = () => {
             body: JSON.stringify(data)
         })
     }, [addedItems])
+   
 
-
-    const myFunction = async () => {
-    useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
-}
-
+    
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
