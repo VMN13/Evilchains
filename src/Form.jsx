@@ -29,6 +29,7 @@ const Form = () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
+    
 
     useEffect(() => {
         tg.MainButton.setParams({
@@ -76,8 +77,8 @@ const Form = () => {
             
             <select value={subject} onChange={onChangeSubject} className={'select'}>
             <option value={''}>Способ оплаты</option>
-                <option value={'0'}>Оплата картой</option>
-                <option value={'1'}>Наличными при получении</option>
+                <option value={'2'}>Оплата картой</option>
+                <option value={'3'}>Наличными при получении</option>
             </select>
       
         </div>

@@ -47,6 +47,8 @@ bot.on('message', async (msg) => {
           console.log(e);
         }
     }
+    
    });
+   
 
 
