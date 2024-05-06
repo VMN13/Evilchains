@@ -1,9 +1,16 @@
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
+const cors = require('cors');
 
 const token = '6844732984:AAFk73dV2cBEgTR2BUjVbQwgGT9fXQrhqPY';
 const webAppUrl = 'https://master--bucolic-donut-13d8f4.netlify.app/';
-
+const sait = 'https://evilchains.by/';
 const bot = new TelegramBot(token, {polling: true});
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
 
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
@@ -29,9 +36,11 @@ bot.on('message', async (msg) => {
             reply_markup: {
                 inline_keyboard: [
                     [{text: 'Сделать заказ', web_app: {url: webAppUrl}}]
+                    
                 ]
             }
         })  
+
     }
 
     if (msg?.web_app_data?.data) {
@@ -49,6 +58,24 @@ bot.on('message', async (msg) => {
     }
     
    });
+
+app.post('/web-data', async (req, res) => {
+    const {queryId, products, totalPrice} = req.body;
+    try {
+    await bot.answerWebAppQuery(queryId, {
+        type: 'article',
+        id: queryId,
+        title: 'Успешная покупка',
+        input_message_ontent: {message_text: 'Поздравляю с покупкой, вы приобрели товар на сумму ' + totalPrice}
+    })
+    return res.status(200).json({});
+    } catch (e) {
+        return res.status(500).json({})
+    
+    }
+})
+   const PORT = 8000;
+   app.listen(PORT, () => console.log('server started on PORT ' + PORT))
    
 
 

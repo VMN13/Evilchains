@@ -1,8 +1,8 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ProductList.css';
 import ProductItem from "./ProductItem";
 import {useTelegram} from "./useTelegram";
-import {useCallback} from "react";
+import {useCallback, useEffect} from "react";
 
 const products = [
     {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
@@ -40,7 +40,12 @@ const ProductList = () => {
         })
     }, [addedItems])
    
-
+  //  useEffect(() => {
+     //   tg.onEvent('mainButtonClicked', onSendData)
+      //  return () => {
+      //      tg.offEvent('mainButtonClicked', onSendData)
+    //    }
+   // }, [onSendData])
     
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
