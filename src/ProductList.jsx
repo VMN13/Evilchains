@@ -4,7 +4,11 @@ import ProductItem from "./ProductItem";
 import {useTelegram} from "./useTelegram";
 import {useCallback, useEffect} from "react";
 
+
+
+
 const products = [
+    
     {id: '1', title: 'ЦЕПЬ', price: 45, description: 'BROKEN HEART'},
     {id: '2', title: 'ЦЕПЬ', price: 45, description: 'CUBAN'},
     {id: '3', title: 'ЦЕПЬ', price: 45, description: 'BIG CROSS'},
@@ -31,7 +35,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://85.119.146.179:8000/web-data', {
+        fetch('https://web.telegram.org/k/#@Evilchains_bot', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,12 +44,7 @@ const ProductList = () => {
         })
     }, [addedItems])
    
-  //  useEffect(() => {
-     //   tg.onEvent('mainButtonClicked', onSendData)
-      //  return () => {
-      //      tg.offEvent('mainButtonClicked', onSendData)
-    //    }
-   // }, [onSendData])
+
     
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -68,6 +67,14 @@ const ProductList = () => {
             })
         }
     }
+
+    //useEffect(() => {
+      //  tg.onEvent('mainButtonClicked', onSendData)
+       // return () => {
+            //tg.offEvent('mainButtonClicked', onSendData)
+      //  }
+  // }, [onSendData])
+//}
 
     return (
         <div className={'list'}>
