@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const token = '6844732984:AAFk73dV2cBEgTR2BUjVbQwgGT9fXQrhqPY';
 const webAppUrl = 'https://master--bucolic-donut-13d8f4.netlify.app/';
-const sait = 'https://evilchains.by/';
+
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
 
@@ -24,15 +24,20 @@ bot.on('message', async (msg) => {
     const text = msg.text;
 
     if(text === '/start') {
-        await bot.sendMessage(chatId, 'Добро пожаловать на страничку бота интернет магазина Evilchains! ', {
+        await bot.sendMessage(chatId, 'Добро пожаловать в магазин аксессуаров Evilchains! ',
+        
+         {
             reply_markup: {
                 keyboard: [
                     [{text: 'Форма обратной связи', web_app: {url: webAppUrl + 'form'}}]
+                    
                 ]
+                
             }
+            
         })
 
-        await bot.sendMessage(chatId, 'Заходи в наш интернет магазин по кнопке ниже', {
+        await bot.sendMessage(chatId, 'Наш интернет магазин по кнопке ниже', {
             reply_markup: {
                 inline_keyboard: [
                     [{text: 'Заказать', web_app: {url: webAppUrl}}]

@@ -18,7 +18,7 @@ const ProductItem = ({
                 <span>Цена: <b>{product.price}</b></span>
             </div>
             <Button className={'add-btn'} onClick={onAddHandler}>
-                Купить
+            Перейти к товару
             </Button>
         </div>
     );
