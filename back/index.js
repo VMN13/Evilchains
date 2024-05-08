@@ -27,7 +27,7 @@ bot.on('message', async (msg) => {
         await bot.sendMessage(chatId, 'Добро пожаловать на страничку бота интернет магазина Evilchains! ', {
             reply_markup: {
                 keyboard: [
-                    [{text: 'Форма обратной связи', web_app: {url: webAppUrl + '/form'}}]
+                    [{text: 'Форма обратной связи', web_app: {url: webAppUrl + 'form'}}]
                 ]
             }
         })
