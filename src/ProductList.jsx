@@ -19,6 +19,7 @@ const products = [
     {id: '8', title: 'ОЧКИ', price: 35, description: 'RAZOR'},
 ]
 
+
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
         return acc += item.price
@@ -35,7 +36,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('https://web.telegram.org/k/#@Evilchains_bot', {
+        fetch('http://localhost:8000/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,6 +44,13 @@ const ProductList = () => {
             body: JSON.stringify(data)
         })
     }, [addedItems])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
    
 
     
@@ -68,13 +76,12 @@ const ProductList = () => {
         }
     }
 
-    //useEffect(() => {
-      //  tg.onEvent('mainButtonClicked', onSendData)
+   // useEffect(() => {
+     // tg.onEvent('mainButtonClicked', onSendData)
        // return () => {
-            //tg.offEvent('mainButtonClicked', onSendData)
-      //  }
-  // }, [onSendData])
-//}
+          // tg.offEvent('mainButtonClicked', onSendData)
+      // }
+// }, [onSendData])
 
 return (
     <div className={'list'}>

@@ -18,6 +18,26 @@ const Form = () => {
     }, [country, street, subject])
 
     
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
+    useEffect(() => {
+        tg.MainButton.setParams({
+            text: 'Отправить данные'
+        })
+    }, [])
+
+    useEffect(() => {
+        if(!street || !country) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+        }
+    }, [country, street])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
