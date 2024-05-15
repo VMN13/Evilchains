@@ -5,8 +5,6 @@ import {useTelegram} from "./useTelegram";
 import {useCallback, useEffect} from "react";
 
 
-
-
 const products = [
     
     {id: '1', title: 'ЦЕПЬ', price: 45, description: 'BROKEN HEART'},

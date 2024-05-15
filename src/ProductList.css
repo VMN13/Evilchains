@@ -3,11 +3,12 @@
     flex-wrap: wrap;
     justify-content: center;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .item {
     margin-right: 10px;
     margin-bottom: 10px;
     overflow-x: hidden;
-    
+    overflow-y: hidden;
 }

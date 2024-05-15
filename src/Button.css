@@ -6,5 +6,6 @@
     border: none;
     outline: none;
     cursor: pointer;
-    
+    overflow-y: hidden;
+    overflow-x: hidden;
 }

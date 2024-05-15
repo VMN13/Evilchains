@@ -7,7 +7,8 @@ div {
     align-content: stretch;
     justify-content: space-evenly;
     align-items: flex-end;
-   
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .form {

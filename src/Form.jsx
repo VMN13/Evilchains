@@ -6,7 +6,20 @@ const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
+   
     const {tg} = useTelegram();
+
+//useEffect(() => {
+  //  tg.NainButton.setParams({
+    //    text: 'Отправить данные'
+    //})
+//},
+//[])
+
+
+
+
+
 
     const onSendData = useCallback(() => {
         const data = {
@@ -18,26 +31,7 @@ const Form = () => {
     }, [country, street, subject])
 
     
-   // useEffect(() => {
-      //  tg.onEvent('mainButtonClicked', onSendData)
-       // return () => {
-        //    tg.offEvent('mainButtonClicked', onSendData)
-       // }
-    // }, [onSendData])
-
-    //useEffect(() => {
-      //  tg.MainButton.setParams({
-        //    text: 'Отправить данные'
-      //  })
-   // }, [])
-
-   // useEffect(() => {
-     //   if(!street || !country) {
-     //       tg.MainButton.hide();
-     //   } else {
-    //        tg.MainButton.show();
-    //    }
-    // }, [country, street])
+ 
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
@@ -65,15 +59,15 @@ const Form = () => {
             <input className={'input'} type="text" placeholder={'Номер телефона'}/>
             <input className={'input'} type="text" placeholder={'Email-адрес'}/>
             <select value={subject} onChange={onChangeSubject} className={'select'}>
-            <option value={''}>Варианты доставки</option>
-                <option value={'0'}>Белпочта (~2-4 дня, цена: 5 BYN)</option>
-                <option value={'1'}>Европочта (~2-4 дня, цена: 5 BYN)</option>
+            <option value={'physical'}>Варианты доставки</option>
+                <option value={'1'}>Белпочта (~2-4 дня, цена: 5 BYN)</option>
+                <option value={'2'}>Европочта (~2-4 дня, цена: 5 BYN)</option>
             </select>
             
             <select value={subject} onChange={onChangeSubject} className={'select'}>
-            <option value={''}>Способ оплаты</option>
-                <option value={'2'}>Оплата картой</option>
-                <option value={'3'}>Наличными при получении</option>
+            <option value={'3'}>Способ оплаты</option>
+                <option value={'4'}>Оплата картой</option>
+                <option value={'5'}>Наличными при получении</option>
             </select>
       
         </div>
