@@ -34,7 +34,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://localhost:8000/', {
+        fetch('http://localhost:3000/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,14 +43,15 @@ const ProductList = () => {
         })
     }, [addedItems])
 
-    //useEffect(() => {
-      //  tg.onEvent('mainButtonClicked', onSendData)
-        //return () => {
-         //   tg.offEvent('mainButtonClicked', onSendData)
-        //}
-    //}, [onSendData])
+    const X = () => { 
+        React.useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData);
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData);
+        }
+    }, [onSendData])
    
-
+   }
     
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -74,12 +75,7 @@ const ProductList = () => {
         }
     }
 
-   // useEffect(() => {
-     // tg.onEvent('mainButtonClicked', onSendData)
-       // return () => {
-          // tg.offEvent('mainButtonClicked', onSendData)
-      // }
-// }, [onSendData])
+   
 
 return (
     <div className={'list'}>

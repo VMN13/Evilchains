@@ -5,8 +5,12 @@
     padding: 15px;
     width: 170px;
     overflow-x: hidden;
-    background: url('./image/evilchains.png') 50%;
+    background: url('./image/evilchains.png') 50%
+   
 }
+
+
+
 
 .img {
     width: 100%;
