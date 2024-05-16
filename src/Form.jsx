@@ -9,12 +9,12 @@ const Form = () => {
    
     const {tg} = useTelegram();
 
-//useEffect(() => {
-  //  tg.NainButton.setParams({
-    //    text: 'Отправить данные'
-    //})
-//},
-//[])
+    const X = () => useEffect(() => {
+    tg.NainButton.setParams({
+       text: 'Отправить данные'
+    })
+},
+[])
 
 
 
