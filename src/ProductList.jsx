@@ -34,7 +34,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://localhost:3000/', {
+        fetch('https://web.telegram.org/k/#@Evilchains_bot', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,16 +43,13 @@ const ProductList = () => {
         })
     }, [addedItems])
 
-    const X = () => { 
-        React.useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData);
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData);
-        }
-    }, [onSendData])
-   
-   }
+    //useEffect(() => {
+      //  tg.onEvent('mainButtonClicked', onSendData); 
+       // return () => {
+          //  tg.offEvent('mainButtonClicked', onSendData);
+           //   }
     
+   // }, [onSendData])  
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
@@ -75,18 +72,16 @@ const ProductList = () => {
         }
     }
 
-   
-
-return (
-    <div className={'list'}>
-        {products.map(item => (
-            <ProductItem
-                product={item}
-                onAdd={onAdd}
-                className={'item'}
-            />
-        ))}
-    </div>
-);
-};
+    return (
+        <div className={'list'}>
+            {products.map(item => (
+                <ProductItem
+                    product={item}
+                    onAdd={onAdd}
+                    className={'item'}
+                />
+            ))}
+        </div>
+    );
+} ;
 export default ProductList;
