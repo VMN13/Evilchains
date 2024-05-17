@@ -33,6 +33,31 @@ const Form = () => {
         tg.sendData(JSON.stringify(data));
     }, [country, street, subject, adres, index, name, familia, nomer, email, oplata])
 
+
+    useEffect=(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
+    useEffect=(() => {
+        tg.MainButton.setParams({
+            text: 'Отправить данные'
+        })
+    }, [])
+    console.log(useEffect)
+
+
+    useEffect=(() => {
+        if(!street || !country || !adres || !index || !name || !familia || !nomer || !email) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+        }
+    }, [country, street, adres, index, name, familia, nomer, email])
+
+
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
     }
