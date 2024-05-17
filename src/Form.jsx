@@ -5,31 +5,33 @@ import {useTelegram} from "./useTelegram";
 const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
-    const [subject, setSubject] = useState('physical');
+    const [subject, setSubject] = useState('');
     const [adres, setAdres] = useState('');
     const [index, setIndex] = useState('');
     const [name, setName] = useState('');
     const [familia, setFamilia] = useState('');
-    const [num, setNumber] = useState('');
+    const [nomer, setNomer] = useState('');
     const [email, setEmail] = useState('');
     const [oplata, setOplata] = useState('');
     const {tg} = useTelegram();
-    
-    const X = () => useEffect(() => {
-    tg.NainButton.setParams({
-       text: 'Отправить данные'
-    })
-},
-[])
+
+
 
     const onSendData = useCallback(() => {
         const data = {
             country,
             street,
-            subject
+            subject,
+            adres,
+            index,
+            name,
+            familia,
+            nomer,
+            email,
+            oplata
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    }, [country, street, subject, adres, index, name, familia, nomer, email, oplata])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
@@ -60,8 +62,8 @@ const Form = () => {
     }
 
 
-    const onChangeNumber = (e) => {
-        setNumber(e.target.value)
+    const onChangeNomer = (e) => {
+        setNomer(e.target.value)
     }
 
 
@@ -84,7 +86,7 @@ const Form = () => {
             <input className={'input'} type="text" placeholder={'Почтовый индекс, *На указанный E-mail придет трек-код после отправки'} value={index} onChange={onChangeIndex}/>
             <input className={'input'} type="text" placeholder={'Имя'} value={name} onChange={onChangeName}/>
             <input className={'input'} type="text" placeholder={'Фамилия'} value={familia} onChange={onChangeFamilia}/>
-            <input className={'input'} type="text" placeholder={'Номер телефона'} value={num} onChange={onChangeNum}/>
+            <input className={'input'} type="text" placeholder={'Номер телефона'} value={nomer} onChange={onChangeNomer}/>
             <input className={'input'} type="text" placeholder={'Email-адрес'} value={email} onChange={onChangeEmail}/>
             <select value={subject} onChange={onChangeSubject} className={'select'}>
             <option value={'physical'}>Варианты доставки</option>
