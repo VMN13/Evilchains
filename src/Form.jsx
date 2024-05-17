@@ -46,7 +46,13 @@ const Form = () => {
             text: 'Отправить данные'
         })
     }, [])
-    console.log(useEffect)
+
+
+    useEffect = (() => {
+        tg.ready();
+  }, [])
+
+   
 
 
     useEffect=(() => {
