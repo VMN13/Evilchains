@@ -8,8 +8,8 @@ import ProductList from './ProductList';
 
 
 function App() {
-  const {tg} = useTelegram();
-    useEffect = (() => {
+  const {onToggleButton, tg} = useTelegram();
+    useEffect(() => {
           tg.ready();
     }, [])
    

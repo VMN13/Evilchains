@@ -34,25 +34,25 @@ const Form = () => {
     }, [country, street, subject, adres, index, name, familia, nomer, email, oplata])
 
 
-    useEffect=(() => {
+    useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
 
-    useEffect=(() => {
+    useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные'
         })
     }, [])
 
 
-    useEffect = (() => {
+    useEffect(() => {
         tg.ready();
   }, [])
 
-    useEffect=(() => {
+    useEffect(() => {
         if(!street || !country || !adres || !index || !name || !familia || !nomer || !email) {
             tg.MainButton.hide();
         } else {
