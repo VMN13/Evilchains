@@ -2,13 +2,13 @@ import './App.css';
 import {useEffect} from "react";
 import {useTelegram} from "./useTelegram";
 import {Route, Routes} from 'react-router-dom';
-import ProductList from "./ProductList";
 import Form from "./Form";
 import Header from "./Header";
+import ProductList from './ProductList';
 
 
 function App() {
-  const {onToggleButton, tg} = useTelegram();
+  const {tg} = useTelegram();
     useEffect = (() => {
           tg.ready();
     }, [])
@@ -16,11 +16,7 @@ function App() {
   
   return (
     <div className="App">
-      <div>
-        <button onClick={onToggleButton}>
-          toggle
-        </button>
-      </div>
+     
       <Header />
       <Routes> 
         <Route index element={<ProductList />}/>

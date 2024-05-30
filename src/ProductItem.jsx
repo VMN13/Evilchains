@@ -2,8 +2,7 @@ import React from 'react';
 import Button from "./Button";
 import './ProductItem.css';
 const ProductItem = ({
-    product, className, onAdd
-}) => {
+    product, className, onAdd}) => {
 
     const onAddHandler = () => {
         onAdd(product);

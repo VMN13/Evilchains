@@ -2,7 +2,6 @@
  import Button from "./Button";
  import {useTelegram} from './useTelegram';
  import './Header.css';
- 
 
  const Header = () => {
  const {user, onClose} = useTelegram();

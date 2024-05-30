@@ -52,9 +52,6 @@ const Form = () => {
         tg.ready();
   }, [])
 
-   
-
-
     useEffect=(() => {
         if(!street || !country || !adres || !index || !name || !familia || !nomer || !email) {
             tg.MainButton.hide();

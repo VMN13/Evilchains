@@ -6,7 +6,7 @@ import {useCallback, useEffect} from "react";
 
 
 const products = [
-    
+   
     {id: '1', title: 'ЦЕПЬ', price: 45, description: 'BROKEN HEART'},
     {id: '2', title: 'ЦЕПЬ', price: 45, description: 'CUBAN'},
     {id: '3', title: 'ЦЕПЬ', price: 45, description: 'BIG CROSS'},
@@ -15,8 +15,8 @@ const products = [
     {id: '6', title: 'БРАСЛЕТ', price: 30, description: 'SLIM'},
     {id: '7', title: 'Браслет', price: 15, description: 'CLASSIC'},
     {id: '8', title: 'ОЧКИ', price: 35, description: 'RAZOR'},
+   
 ]
-
 
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
@@ -43,14 +43,12 @@ const ProductList = () => {
         })
     }, [addedItems])
 
-
-    useEffect=(() => {
+    useEffect = (() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
-
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -85,5 +83,6 @@ const ProductList = () => {
             ))}
         </div>
     );
-} ;
+};
+
 export default ProductList;
