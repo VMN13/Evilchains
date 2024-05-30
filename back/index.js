@@ -41,6 +41,13 @@ bot.on('message', async (msg) => {
             await bot.sendMessage(chatId, 'Спасибо за обратную связь!')
             await bot.sendMessage(chatId, 'Ваша страна: ' + data?.country);
             await bot.sendMessage(chatId, 'Ваша улица: ' + data?.street);
+            await bot.sendMessage(chatId, 'Ваш адрес: ' + data?.adres);
+            await bot.sendMessage(chatId, 'Ваша индекс: ' + data?.index);
+            await bot.sendMessage(chatId, 'Ваше имя: ' + data?.name);
+            await bot.sendMessage(chatId, 'Ваша фамилия: ' + data?.familia);
+            await bot.sendMessage(chatId, 'Ваш номер: ' + data?.nomer);
+            await bot.sendMessage(chatId, 'Ваш имейл: ' + data?.email);
+           
 
             setTimeout(async () => {
                 await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате');
